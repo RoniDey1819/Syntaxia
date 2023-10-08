@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Link to Google Fonts for "Orbitron" font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div><h1 class="header-text">Syntaxia 2K23 Attendance Collection</h1></div>
+            <div><p class="sub-header">Please insert Attende ID:</p></div>
+            <div id="container-form">
+                <form action="details.html" method="GET" id="details-form">
+                    <div class="form-group">
+                        <label for="ID_name" class="label-8bit">Enter Attende ID:</label>
+                        <input type="text" id="ID_name" name="ID_name" placeholder="Enter ID" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+    </div>
+</body>
+</html>
