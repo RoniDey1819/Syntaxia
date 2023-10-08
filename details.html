@@ -24,7 +24,7 @@
         <div class="food-received">
             <h2>Food Received</h2>
             <label for="food_received">
-                <input type="checkbox" id="food_received" name="food_received">
+                <input type="checkbox" id="food_received" name="food_received" disabled>
                 Received
             </label>
         </div>
@@ -35,6 +35,9 @@
 
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
+            // Get the referrer URL
+            const referrer = document.referrer;
+
             // Get the values from the query parameters in the URL
             const urlParams = new URLSearchParams(window.location.search);
             const studentName = urlParams.get('student_name');
@@ -48,11 +51,18 @@
             document.getElementById('student_name').textContent = studentName || '';
             document.getElementById('second_name').textContent = secondName || '';
             document.getElementById('batch').textContent = batch || '';
+            document.getElementById('ID_name').textContent = ID_name || '';
             document.getElementById('food_preference').textContent = foodPreference || '';
 
             // Check the checkbox if "food_received" is "true"
             if (foodReceived === 'true') {
                 document.getElementById('food_received').checked = true;
+            }
+
+            // Check if the user came from admin.html based on the referrer URL
+            if (referrer.includes('admin.html')) {
+                // Enable the checkbox
+                document.getElementById('food_received').disabled = false;
             }
         });
     </script>
