@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="profile.css"> <!-- Link to your custom CSS file for styling -->
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Attendee</h1>
+        </div>
+        <div class="profile-details">
+            <h2>Personal Information</h2>
+            <ul>
+                <li><strong>Name:</strong> <span id="student_name"></span></li>
+                <li><strong>Batch:</strong> <span id="batch"></span></li>
+                <li><strong>Food Preference:</strong> <span id="food_preference"></span></li>
+            </ul>
+        </div>
+        <div class="food-received">
+            <h2>Food Received</h2>
+            <label for="food_received">
+                <input type="checkbox" id="food_received" name="food_received">
+                Received
+            </label>
+        </div>
+        <div class="profile-image">
+            <!-- You can add an image here if needed -->
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Get the values from the query parameters in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentName = urlParams.get('student_name');
+            const batch = urlParams.get('batch');
+            const foodPreference = urlParams.get('food_preference');
+            const foodReceived = urlParams.get('food_received'); // Added food_received parameter
+
+            // Update the elements with the retrieved values
+            document.getElementById('student_name').textContent = studentName || '';
+            document.getElementById('batch').textContent = batch || '';
+            document.getElementById('food_preference').textContent = foodPreference || '';
+
+            // Check the checkbox if "food_received" is "true"
+            if (foodReceived === 'true') {
+                document.getElementById('food_received').checked = true;
+            }
+        });
+    </script>
+</body>
+</html>

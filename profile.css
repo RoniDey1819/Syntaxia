@@ -1,0 +1,101 @@
+/* details.css */
+
+/* Import fonts from index.css */
+@import url('index.css');
+
+h2 {
+    padding: 10px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #009000, #003000); /* Greenish gradient background */
+}
+
+.profile-container {
+    max-width: 800px; /* Make the container a little bigger */
+    margin: 0 auto;
+    padding: 2vw; /* Use vw units for padding */
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for container */
+
+    /* Increase font size for elements within the profile container */
+    font-size: 2vw; /* Use vw units for font size */
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2vw; /* Use vw units for margin */
+}
+
+.profile-header h1 {
+    font-size: 4vw; /* Use vw units for font size */
+    color: #333;
+}
+
+.profile-details {
+    background-color: #fff;
+    padding: 2vw; /* Use vw units for padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.profile-details h2 {
+    font-size: 3vw; /* Use vw units for font size */
+    color: #333;
+}
+
+.profile-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-details li {
+    margin-bottom: 1vw; /* Use vw units for margin */
+}
+
+.food-received label {
+    font-family: 'Exo 2', sans-serif; /* Use the Exo 2 font */
+    font-size: 2vw; /* Use vw units for font size */
+    color: #333; /* Text color for the checkbox label */
+}
+
+.food-received input[type="checkbox"] {
+    margin-left: 1vw; /* Use vw units for margin */
+    cursor: pointer;
+}
+
+.profile-image {
+    text-align: center;
+}
+
+.profile-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+    .profile-container {
+        max-width: 90vw; /* Adjust the container width for smaller screens */
+        font-size: 4vw; /* Decrease font size for smaller screens */
+    }
+
+    .profile-header h1 {
+        font-size: 6vw; /* Decrease header font size for smaller screens */
+    }
+
+    .profile-details h2 {
+        font-size: 5vw; /* Decrease details font size for smaller screens */
+    }
+
+    .food-received label {
+        font-size: 3vw; /* Decrease label font size for smaller screens */
+    }
+}
