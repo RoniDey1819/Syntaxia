@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="admin-details.css"> <!-- Link to your custom CSS file for styling -->
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Attendee</h1>
+        </div>
+        <div class="profile-details">
+            <h2>Personal Information</h2>
+            <ul>
+                <li><strong>First Name:</strong> <span id="student_name"></span></li>
+                <li><strong>Second Name:</strong> <span id="second_name"></span></li>
+                <li><strong>Batch:</strong> <span id="batch"></span></li>
+                <li><strong>User ID:</strong> <span id="ID_name"></span></li>
+                <li><strong>Food Preference:</strong> <span id="food_preference"></span></li>
+            </ul>
+        </div>
+        <div class="food-received">
+            <h2>Food Received</h2>
+            <form action="admin-details.html">
+                <label for="food_received">
+                    <input type="checkbox" id="food_received" name="food_received" >
+                    Received
+                </label>
+                <div id="submit-button-container">
+                    <!-- This button will be displayed for users coming from admin.html -->
+                    <button id="submit-button" type="button">Submit</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="profile-image">
+            <img id="fun-image" src="2GU.gif">
+        </div>
+        
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Get the referrer URL
+            const referrer = document.referrer;
+
+            // Get the values from the query parameters in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentName = urlParams.get('student_name');
+            const secondName = urlParams.get('second_name');
+            const batch = urlParams.get('batch');
+            const ID_name = urlParams.get('ID_name');
+            const foodPreference = urlParams.get('food_preference');
+            const foodReceived = urlParams.get('food_received'); // Added food_received parameter
+
+            // Update the elements with the retrieved values
+            document.getElementById('student_name').textContent = studentName || '';
+            document.getElementById('second_name').textContent = secondName || '';
+            document.getElementById('batch').textContent = batch || '';
+            document.getElementById('ID_name').textContent = ID_name || '';
+            document.getElementById('food_preference').textContent = foodPreference || '';
+
+            // Check the checkbox if "food_received" is "true"
+            if (foodReceived === 'true') {
+                document.getElementById('food_received').checked = true;
+            }
+
+            // Check if the user came from admin.html based on the referrer URL
+            if (referrer.includes('admin.html')) {
+                // Enable the checkbox
+                document.getElementById('food_received').disabled = false;
+                
+                // Display the "Submit" button for users coming from admin.html
+                const submitButtonContainer = document.getElementById('submit-button-container');
+                const submitButton = document.getElementById('submit-button');
+                if (submitButtonContainer && submitButton) {
+                    submitButtonContainer.style.display = 'block';
+                    submitButton.style.display = 'block';
+                }
+            } else {
+                // Remove the "Submit" button for users coming from index.html
+                const submitButtonContainer = document.getElementById('submit-button-container');
+                if (submitButtonContainer) {
+                    submitButtonContainer.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
