@@ -14,7 +14,8 @@
         <div class="profile-details">
             <h2>Personal Information</h2>
             <ul>
-                <li><strong>Name:</strong> <span id="student_name"></span></li>
+                <li><strong>First Name:</strong> <span id="student_name"></span></li>
+                <li><strong>Second Name:</strong> <span id="second_name"></span></li>
                 <li><strong>Batch:</strong> <span id="batch"></span></li>
                 <li><strong>Food Preference:</strong> <span id="food_preference"></span></li>
             </ul>
@@ -27,7 +28,7 @@
             </label>
         </div>
         <div class="profile-image">
-            <!-- You can add an image here if needed -->
+            <img id="fun-image" src="2GU.gif">
         </div>
     </div>
 
@@ -36,12 +37,14 @@
             // Get the values from the query parameters in the URL
             const urlParams = new URLSearchParams(window.location.search);
             const studentName = urlParams.get('student_name');
+            const secondName = urlParams.get('second_name');
             const batch = urlParams.get('batch');
             const foodPreference = urlParams.get('food_preference');
             const foodReceived = urlParams.get('food_received'); // Added food_received parameter
 
             // Update the elements with the retrieved values
             document.getElementById('student_name').textContent = studentName || '';
+            document.getElementById('second_name').textContent = secondName || '';
             document.getElementById('batch').textContent = batch || '';
             document.getElementById('food_preference').textContent = foodPreference || '';
 

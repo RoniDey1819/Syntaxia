@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #009000, #003000); /* Greenish gradient background */
+    background-image: url(bg.gif); /* Greenish gradient background */
 }
 
 .profile-container {
@@ -78,6 +78,11 @@ body {
     height: auto;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+#fun-image {
+    width: 30vw;
+    height: 30vw;
 }
 
 /* Media queries for mobile responsiveness */
