@@ -23,14 +23,22 @@
         </div>
         <div class="food-received">
             <h2>Food Received</h2>
-            <label for="food_received">
-                <input type="checkbox" id="food_received" name="food_received" disabled>
-                Received
-            </label>
+            <form action="details.html">
+                <label for="food_received">
+                    <input type="checkbox" id="food_received" name="food_received" disabled >
+                    Received
+                </label>
+                <div id="submit-button-container">
+                    <!-- This button will be displayed for users coming from admin.html -->
+                    <button id="submit-button" type="button">Submit</button>
+                </div>
+            </form>
         </div>
+        
         <div class="profile-image">
             <img id="fun-image" src="2GU.gif">
         </div>
+        
     </div>
 
     <script>
@@ -63,6 +71,20 @@
             if (referrer.includes('admin.html')) {
                 // Enable the checkbox
                 document.getElementById('food_received').disabled = false;
+                
+                // Display the "Submit" button for users coming from admin.html
+                const submitButtonContainer = document.getElementById('submit-button-container');
+                const submitButton = document.getElementById('submit-button');
+                if (submitButtonContainer && submitButton) {
+                    submitButtonContainer.style.display = 'block';
+                    submitButton.style.display = 'block';
+                }
+            } else {
+                // Remove the "Submit" button for users coming from index.html
+                const submitButtonContainer = document.getElementById('submit-button-container');
+                if (submitButtonContainer) {
+                    submitButtonContainer.style.display = 'none';
+                }
             }
         });
     </script>
